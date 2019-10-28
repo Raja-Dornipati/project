@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+    <head>
+        <title>Employee Management System</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    </head>
+    <br>
+{#    {% include 'base.html' %}#}
+    <div align="center">
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><label for="usernmae">username</label></td>
+                    <td><input type="text" name="username" id="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label>
+                    </td>
+                    <td><input type="password" name="password" id="password" required></td>
+                </tr>
+{#                <p style="color: red">{{ error }}</p>#}
+            </table>
+            <br>
+            <button class="btn btn-success" type="submit">Login</button>
+        </form>
+        <a class="btn btn-info" href="{% url 'password_reset' %}">Forgot your password?</a>
+        <br>
+        <br>
+        <a class="btn btn-warning" href="{% url 'user_signup' %}">Don't have an account? click here to sign up</a>
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        {% endif %}
+    </div>
+    </ul>
+    </br>
+    </body>
+</html>

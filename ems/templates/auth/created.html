@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <p>User created successfully.</p>
+    <form method="GET" action="/login/">
+        {% csrf_token %}
+        <input type="submit" value="Login">
+    </form>
+{% endblock content %}

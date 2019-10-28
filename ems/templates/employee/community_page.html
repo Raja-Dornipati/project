@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community Page</title>
+</head>
+{% include 'base.html' %}
+<body>
+<div align="right">
+    <a class="btn btn-info" href="{% url 'employee_details' user.id %}">Back to Details Page</a>
+</div>
+<a class="btn btn-warning" href="{% url 'post_form' %}">Post a Question</a>
+
+</body>
+</html>

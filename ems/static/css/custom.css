@@ -1,0 +1,12 @@
+body{
+    background:wheat ;
+}
+
+
+.nabvar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    font-family: 'satisfy', cursive;
+}

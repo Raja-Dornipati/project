@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<title>Signup</title>
+<meta http-equiv="content-type"
+    content="text/html; charset=utf-8" />
+<style>
+
+input.txt {
+  color: #00008B;
+  background-color: #E3F2F7;
+  border: 1px inset #00008B;
+  width: 200px;
+}
+input.btn {
+  color: #00008B;
+  background-color: #ADD8E6;
+  border: 1px outset #00008B;
+}
+form div {
+  clear: left;
+  margin: 0;
+  padding: 0;
+  padding-top: 0.6em;
+}
+form div label {
+  float: left;
+  width: 40%;
+  font: bold 0.9em Arial, Helvetica, sans-serif;
+}
+    </style>
+</head>
+<body>
+{#{% include 'base.html'  %}#}
+<h1>User Registration Form</h1>
+<form method="post">
+    {% csrf_token %}
+  <div>
+      <label for="username">username</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+  </div>
+  <div>
+    <label for="first_name">first name</label>
+    {{ form.first_name }}
+    {{ form.first_name.errors }}
+  </div>
+  <div>
+    <label for="last_name">last_name</label>
+    {{ form.last_name }}
+    {{ form.last_name.errors }}
+  </div>
+  <div>
+    <label for="email">E-mail</label>
+    {{ form.email }}
+  </div>
+  <div>
+    <label for="phone">phone</label>
+    {{ form.phone }}
+    {{ form.phone.errors }}
+  </div>
+  <div>
+    <label for="gender">gender</label>
+    <input type="radio" name="gender" value="Male" required/><span>Male</span>
+    <input type="radio" name="gender" value="Female" required/><span>Female</span>
+  </div>
+  <div>    {{ form.email.errors }}
+
+    <label for="city">select a city</label>
+     <select name="city">
+         <option selected="" value="Default" hidden>Select a option </option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Vishakspatnam">Vishakspatnam</option>
+        <option value="Kalakata">Kalkata</option>
+        <option value="Chennai">Chennai</option>
+    </select>
+  </div>
+  <div>
+    <label for="password">password</label>
+    {{ form.password }}
+    {{ form.password.errors }}
+  </div>
+  <div>
+    <label for="password1">confirm password</label>
+    {{ form.password1 }}
+    {{ form.password1.errors }}
+  </div>
+{#  <div>#}
+{#    <input type="checkbox" name="terms" value="condtions" > I Accept the terms and conditions#}
+{#  </div>#}
+  <div>
+    <input type="submit" name="btnSubmit" id="btnSubmit" value="submit!" class="btn" required />
+  </div>
+    <br>
+    <a class="btn btn-warning" href="{% url 'user_login' %}">Already have an account click here</a>
+</form>
+</body>
+</html>
